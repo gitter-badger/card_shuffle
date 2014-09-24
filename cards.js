@@ -100,7 +100,7 @@ $('#start').on('click', function() {
 		'left': '45%',
 	}, 2000).delay(1000);
 	$('#start').fadeOut(1000);
-	$('#show').delay(5000).fadeIn(5000);
+	$('#show').delay(6000).fadeIn(5000);
 })
 $('#show').on('click', function() {
 	$('img').remove();
