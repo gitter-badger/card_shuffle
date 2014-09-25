@@ -4,12 +4,12 @@ for (r=0; r < 52; r++) {
 	$('body').append('<div id="' + (r+1) +'"></div>');
 	$('#' + (r+1)).append('<img src="images/' + cards[r] + '.png">');
 	$('#' + cards[r]).css({
-			'z-index': 100 - r,
-			'position': 'absolute',
-			'top': 120 + ((Math.pow(r, 2) - (52 * r) + 676) / 5) + 'px',
-			'left': 86 - (1.5 * r) + '%',
-			'-webkit-filter': 'grayscale(15%)',
-		})
+		'z-index': 100 - r,
+		'position': 'absolute',
+		'top': 120 + ((Math.pow(r, 2) - (52 * r) + 676) / 5) + 'px',
+		'left': 86 - (1.5 * r) + '%',
+		'-webkit-filter': 'grayscale(15%)',
+	})
 };
 function shuffle(cards) {
   var n = cards.length, t, i;
