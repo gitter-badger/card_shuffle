@@ -3,3 +3,11 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%, 100%; 
 }
+h1 {
+	color: #c9c9c9;
+	text-align: center;
+	font-family: Calibri;
+}
+img:not(#hand) {
+	border: 0.1em solid #122d12;
+}

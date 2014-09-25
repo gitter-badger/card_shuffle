@@ -67,7 +67,7 @@ $('#show').css({
 $('#start').on('click', function() {
 	for(yay=1 ; yay < 53; yay++) {
 		$('#' + yay).animate({
-		'left': (45 - ((yay * 5) / 200)) + "%",
+		'left': (46 - ((yay * 5) / 200)) + "%",
 		'top': (28 + ((yay * 5) / 200)) + "%",
 	}, 5000, function() {
 		$('img').animate({
@@ -76,7 +76,7 @@ $('#start').on('click', function() {
 		}, 1000)
 	}).delay(1000);
 	};
-	$('body').append('<section id="hand"><img src="images/hand1.png"></section>');
+	$('body').append('<section id="hand"><img id="hand" src="images/hand1.png"></section>');
 	$('#hand').hide();
 	$('#hand').css({
 		'position': 'absolute',
@@ -100,8 +100,20 @@ $('#start').on('click', function() {
 	$('div').delay(1000).animate({
 		'left': '45%',
 	}, 2000).delay(1000);
+	$('div:lt(' + (2 + Math.floor(Math.random() * 12)) + ')').animate({
+		'left': '+=13%',
+		'z-index': '-=20',
+	}, 2500);	
+	$('div:lt(' + Math.floor(14 + (Math.random() * 38)) + '):gt(' 
+		+ Math.floor(2 + (Math.random() * 12)) + ')').animate({
+		'left': '-=13%',
+		'z-index': '+=25',
+	}, 2500);
+	$('div').delay(1000).animate({
+		'left': '45%',
+	}, 2000).delay(1000);	
 	$('#start').fadeOut(1000);
-	$('#show').delay(8000).fadeIn(5000);
+	$('#show').delay(16000).fadeIn(5000);
 })
 $('#show').on('click', function() {
 	$('img').remove();
