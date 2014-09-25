@@ -92,9 +92,10 @@ $('#start').on('click', function() {
 		'left': '+=13%',
 		'z-index': '-=20',
 	}, 2500);	
-	$('div:lt(' + Math.floor(30 + (Math.random() * 20)) + '):gt(' + Math.floor(17 + (Math.random() * 14)) + ')').animate({
+	$('div:lt(' + Math.floor(30 + (Math.random() * 20)) + '):gt(' 
+		+ Math.floor(18 + (Math.random() * 14)) + ')').animate({
 		'left': '-=13%',
-		'z-index': '+=20',
+		'z-index': '+=25',
 	}, 2500);
 	$('div').delay(1000).animate({
 		'left': '45%',
