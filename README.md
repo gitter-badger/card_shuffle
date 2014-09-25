@@ -1,4 +1,4 @@
 card_shuffle
 ============
-Created with jQuery. It is a card-shuffle animation. 
+Created with jQuery.<br/>It is a card-shuffle animation.<br/> 
 Used jQuery .animate() method mostly.
