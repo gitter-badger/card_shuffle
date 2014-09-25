@@ -45,13 +45,13 @@ function shuffle(cards) {
   }
   return cards;
 }
-$('body').append('<button id="start" value="START!">START</button>');
+$('body').append('<button id="start" value="Shuffle">SHUFFLE!</button>');
 $('#start').css({
 	'position': 'absolute',
-	'width': '5%',
-	'height': '3%',
+	'width': '6%',
+	'height': '3.5%',
 	'z-index': 9999,
-	'left': '48%',
+	'left': '47%',
 	'top': '80%',
 });
 $('body').append('<button id="show" value="SHOW!">SHOW</button>');
@@ -59,7 +59,7 @@ $('#show').hide();
 $('#show').css({
 	'position': 'absolute',
 	'width': '5%',
-	'height': '3%',
+	'height': '3.3%',
 	'z-index': 9999,
 	'left': '48%',
 	'top': '80%',
@@ -88,19 +88,19 @@ $('#start').on('click', function() {
 	$('#hand').fadeOut(400, function() {
 		$('#hand').remove
 	});
-	$('div:lt(14)').animate({
+	$('div:lt(' + (2 + Math.floor(Math.random() * 15)) + ')').animate({
 		'left': '+=13%',
-		'z-index': '-=15',
+		'z-index': '-=20',
 	}, 2500);	
-	$('div:lt(45):gt(30)').animate({
+	$('div:lt(' + Math.floor(30 + (Math.random() * 20)) + '):gt(' + Math.floor(17 + (Math.random() * 14)) + ')').animate({
 		'left': '-=13%',
-		'z-index': '+=26',
+		'z-index': '+=20',
 	}, 2500);
 	$('div').delay(1000).animate({
 		'left': '45%',
 	}, 2000).delay(1000);
 	$('#start').fadeOut(1000);
-	$('#show').delay(6000).fadeIn(5000);
+	$('#show').delay(8000).fadeIn(5000);
 })
 $('#show').on('click', function() {
 	$('img').remove();
