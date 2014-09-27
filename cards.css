@@ -8,6 +8,10 @@ h1 {
 	text-align: center;
 	font-family: Calibri;
 } 
-img:not(#hand) {
+img {
 	border: 0.1em solid #122d12;
+}
+button {
+	font-family: Calibri;
+	font-size: 16px;
 }

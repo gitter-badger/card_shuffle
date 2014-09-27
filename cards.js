@@ -18,7 +18,7 @@ function shuffle(cards) {
     t = cards[n];
     cards[n] = cards[i];
     cards[i] = t;
-    $('#' + (n+1)).append('<img src="images/' + cards[n] + '.png">');
+    $('#' + (n+1)).append('<img id=i' + cards[n] + ' src="images/' + cards[n] + '.png">');
     $('#' + cards[n]).css({
 			'z-index': 100 - n,
 			'position': 'absolute',
@@ -40,9 +40,10 @@ function shuffle(cards) {
 				'width': '72px',
 				'height': '96px', 
 			});
-			$(this).parent()
 		})
   }
+  $('#show').delay(500).fadeOut(1000);
+  $('#sort').delay(3800).fadeIn(3000);
   return cards;
 }
 $('body').append('<button id="start" value="Shuffle">SHUFFLE!</button>');
@@ -54,7 +55,7 @@ $('#start').css({
 	'left': '47%',
 	'top': '80%',
 });
-$('body').append('<button id="show" value="SHOW!">SHOW</button>');
+$('body').append('<button id="show" value="SHOW!">SHOW!</button>');
 $('#show').hide();
 $('#show').css({
 	'position': 'absolute',
@@ -62,6 +63,16 @@ $('#show').css({
 	'height': '3.3%',
 	'z-index': 9999,
 	'left': '48%',
+	'top': '80%',
+});
+$('body').append('<button id="sort" value="SORT!">SORT AGAIN!</button>');
+$('#sort').hide();
+$('#sort').css({
+	'position': 'absolute',
+	'width': '8%',
+	'height': '3.3%',
+	'z-index': 9999,
+	'left': '47%',
 	'top': '80%',
 });
 $('#start').on('click', function() {
@@ -76,18 +87,6 @@ $('#start').on('click', function() {
 		}, 1000)
 	}).delay(1000);
 	};
-	$('body').append('<section id="hand"><img id="hand" src="images/hand1.png"></section>');
-	$('#hand').hide();
-	$('#hand').css({
-		'position': 'absolute',
-		'left': '40%',
-		'top': '5%',
-		'z-index': '9999999',
-	});
-	$('#hand').delay(5200).fadeIn(400);
-	$('#hand').fadeOut(400, function() {
-		$('#hand').remove
-	});
 	$('div:lt(' + (2 + Math.floor(Math.random() * 15)) + ')').animate({
 		'left': '+=13%',
 		'z-index': '-=20',
@@ -105,17 +104,41 @@ $('#start').on('click', function() {
 		'z-index': '-=20',
 	}, 2500);	
 	$('div:lt(' + Math.floor(14 + (Math.random() * 38)) + '):gt(' 
-		+ Math.floor(2 + (Math.random() * 12)) + ')').animate({
+		+ Math.floor(1 + (Math.random() * 12)) + ')').animate({
 		'left': '-=13%',
 		'z-index': '+=25',
 	}, 2500);
-	$('div').delay(1000).animate({
+	$('div').delay(100).animate({
 		'left': '45%',
 	}, 2000).delay(1000);	
 	$('#start').fadeOut(1000);
-	$('#show').delay(16000).fadeIn(5000);
+	$('#show').delay(18000).fadeIn(1000);
 })
 $('#show').on('click', function() {
 	$('img').remove();
 	shuffle(cards);
 })
+$('#sort').on('click', function() {
+		for(var ss = 0; ss < 52; ss++) {
+		var sorting = $('#i' + (ss + 1)).parent();
+		sorting.animate({
+			'top': '+=300px',
+		}, 800);
+		sorting.css({
+			'z-index': 100 - cards[ss],
+		})
+	}
+	for(var ss = 0; ss < 52; ss++) {
+		var sorting = $('#i' + cards[ss]).parent();
+		sorting.delay(650 * ss).animate({
+			'top': 120 + ((Math.pow(cards[ss] - 1, 2) - (52 * (cards[ss] - 1)) + 676) / 5) + 'px',
+			'left': 86 - (1.5 * (cards[ss] - 1)) + '%',
+		}, 1000);
+		sorting.css({
+			'z-index': 100 - cards[ss],
+		})
+	}
+	$('#sort').fadeOut(1000);
+	$('#start').delay(35000).fadeIn(1000);
+})
+
