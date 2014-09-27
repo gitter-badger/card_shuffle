@@ -119,14 +119,11 @@ $('#show').on('click', function() {
 	shuffle(cards);
 })
 $('#sort').on('click', function() {
-		for(var ss = 0; ss < 52; ss++) {
+	for(var ss = 0; ss < 52; ss++) {
 		var sorting = $('#i' + (ss + 1)).parent();
 		sorting.animate({
 			'top': '+=300px',
 		}, 800);
-		sorting.css({
-			'z-index': 100 - cards[ss],
-		})
 	}
 	for(var ss = 0; ss < 52; ss++) {
 		var sorting = $('#i' + cards[ss]).parent();
